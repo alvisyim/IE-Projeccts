@@ -72,41 +72,41 @@ function rock () {
   if (rockState =="000"){
   }
   else if (rockState =="100"){
-    rect(0,rock01LocationY,200,rock01SizeY);
+    //rect(0,rock01LocationY,200,rock01SizeY);
     image(rock01,0,rock01LocationY,200,rock01SizeY);
   }
   else if (rockState == "010") {
-    rect(200,rock01LocationY,200,rock01SizeY);
+    //rect(200,rock01LocationY,200,rock01SizeY);
     image(rock01,200,rock01LocationY,200,rock01SizeY);
   }
   else if (rockState == "001") {
-    rect(400,rock01LocationY,200,rock01SizeY);
+    //rect(400,rock01LocationY,200,rock01SizeY);
     image(rock01,400,rock01LocationY,200,rock01SizeY);
   }
   else if (rockState == "101") {
-    rect(0,rock01LocationY,200,rock01SizeY);
+    //rect(0,rock01LocationY,200,rock01SizeY);
     image(rock01,0,rock01LocationY,200,rock01SizeY);
-    rect(400,rock01LocationY,200,rock01SizeY);
+    //rect(400,rock01LocationY,200,rock01SizeY);
     image(rock01,400,rock01LocationY,200,rock01SizeY);
   }
   else if (rockState == "110") {
-    rect(0,rock01LocationY,200,rock01SizeY);
+    //rect(0,rock01LocationY,200,rock01SizeY);
     image(rock01,0,rock01LocationY,200,rock01SizeY);
-    rect(200,rock01LocationY,200,rock01SizeY);
+    //rect(200,rock01LocationY,200,rock01SizeY);
     image(rock01,200,rock01LocationY,200,rock01SizeY);
   }
   else if (rockState == "011") {
-    rect(200,rock01LocationY,200,rock01SizeY);
+    //rect(200,rock01LocationY,200,rock01SizeY);
     image(rock01,200,rock01LocationY,200,rock01SizeY);
-    rect(400,rock01LocationY,200,rock01SizeY);
+    //rect(400,rock01LocationY,200,rock01SizeY);
     image(rock01,400,rock01LocationY,200,rock01SizeY);
   }
   else if (rockState == "111") {
-    rect(0,rock01LocationY,200,rock01SizeY);
+    //rect(0,rock01LocationY,200,rock01SizeY);
     image(rock01,0,rock01LocationY,200,rock01SizeY);
-    rect(200,rock01LocationY,200,rock01SizeY);
+    //rect(200,rock01LocationY,200,rock01SizeY);
     image(rock01,200,rock01LocationY,200,rock01SizeY);
-    rect(400,rock01LocationY,200,rock01SizeY);
+    //rect(400,rock01LocationY,200,rock01SizeY);
     image(rock01,400,rock01LocationY,200,rock01SizeY);
   }
 
