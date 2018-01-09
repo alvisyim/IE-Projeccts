@@ -16,7 +16,6 @@ var rockState = "111";
 var rock01SizeY = 200/490*370;
 
 var inPos;
-
 var bg01;
 var ship01;
 var dottedLine;
