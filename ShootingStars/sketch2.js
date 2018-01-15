@@ -35,7 +35,7 @@ function preload() {
   //500x413
   dottedLine = loadImage("line.png");
   rock01 = loadImage("rock01.png");
-  //490x370
+  //4:3
   missile01 = loadImage("missile01.png");
   //230x310
 }
@@ -201,17 +201,17 @@ function resetStuff(){
 function rock () {
   fill(120)
   if (rock01Appear1 == true) {
-    rect(0,rock01LocationY,200,rock01SizeY);
+    //rect(0,rock01LocationY,200,rock01SizeY);
     image(rock01,0,rock01LocationY,200,rock01SizeY);
   } else {
   }
   if (rock01Appear2 == true) {
-    rect(200,rock01LocationY,200,rock01SizeY);
+    //rect(200,rock01LocationY,200,rock01SizeY);
     image(rock01,200,rock01LocationY,200,rock01SizeY);
   } else {
   }
   if (rock01Appear3 == true) {
-    rect(400,rock01LocationY,200,rock01SizeY);
+    //rect(400,rock01LocationY,200,rock01SizeY);
     image(rock01,400,rock01LocationY,200,rock01SizeY);
   } else {
   }
