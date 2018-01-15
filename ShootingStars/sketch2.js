@@ -3,10 +3,8 @@ var bg01;
 
 var ship01SizeX = 50;
 var ship01SizeY = 50;
-var ship01LocationX;
-var ship01LocationY;
-var missile01LocationX;
-var missile01LocationY;
+var ship01LocationX, ship01LocationY;
+var missile01LocationX, missile01LocationY;
 var missile01SizeX = 20;
 var missile01SizeY = 27;
 var missile01Move = false;
@@ -26,6 +24,14 @@ var rock01Appear2 = false;
 var rock01Appear3 = false;
 
 var correctAnswer;
+var bbb = 0;
+var exSize = 200;
+var exLocationX;
+var exLocationY;
+
+var triggerExplode1 = false;
+var triggerExplode2 = false;
+var triggerExplode3 = false;
 
 
 function preload() {
@@ -38,6 +44,20 @@ function preload() {
   //4:3
   missile01 = loadImage("missile01.png");
   //230x310
+
+  ex01 = loadImage("ex/ex01.png");
+  ex02 = loadImage("ex/ex02.png");
+  ex03 = loadImage("ex/ex03.png");
+  ex04 = loadImage("ex/ex04.png");
+  ex05 = loadImage("ex/ex05.png");
+  ex06 = loadImage("ex/ex06.png");
+  ex07 = loadImage("ex/ex07.png");
+  ex08 = loadImage("ex/ex08.png");
+  ex09 = loadImage("ex/ex09.png");
+  ex10 = loadImage("ex/ex10.png");
+  ex11 = loadImage("ex/ex11.png");
+  ex12 = loadImage("ex/ex12.png");
+  //1:1
 }
 
 function setup () {
@@ -84,7 +104,6 @@ function bg() {
 }
 
 function rockInit(){
-////////////////////////////////////////////////////////////////////////////////////rock01Appear1 == ture
     if (missile01Move == true){
       //missile Speed
       missile01LocationY -= 10;
@@ -113,39 +132,57 @@ function ifs() {
   if ((missile01LocationY < rock01LocationY + rock01SizeY) && missile01Move == true) {
     if (inPos == "1"){
       if (rock01Appear1 == true ){
+        triggerExplode1 = true;
         rock01Appear1 = false;
         missile01Move = false;
 
         if (correctAnswer == "1"){
-          rock01Appear1 = false;
-          rock01Appear2 = false;
-          rock01Appear3 = false;
+          if(rock01Appear2 == true){
+            triggerExplode2 = true;
+            rock01Appear2 = false;
+          }
+          if(rock01Appear3 == true){
+            triggerExplode3 = true;
+            rock01Appear3 = false;
+          }
         }
       } else {
       }
     }
     if (inPos == "2"){
       if (rock01Appear2 == true ){
+        triggerExplode2 = true;
         rock01Appear2 = false;
         missile01Move = false;
 
         if (correctAnswer == "2"){
-          rock01Appear1 = false;
-          rock01Appear2 = false;
-          rock01Appear3 = false;
+          if(rock01Appear1 == true){
+            triggerExplode1 = true;
+            rock01Appear1 = false;
+          }
+          if(rock01Appear3 == true){
+            triggerExplode3 = true;
+            rock01Appear3 = false;
+          }
         }
       } else {
       }
     }
     if (inPos == "3"){
       if (rock01Appear3 == true ){
+        triggerExplode3 = true;
         rock01Appear3 = false;
         missile01Move = false;
 
         if (correctAnswer == "3"){
-          rock01Appear1 = false;
-          rock01Appear2 = false;
-          rock01Appear3 = false;
+          if (rock01Appear1 == true){
+            triggerExplode1 = true;
+            rock01Appear1 = false;
+          }
+          if(rock01Appear2 == true){
+            triggerExplode2 = true;
+            rock01Appear2 = false;
+          }
         }
       } else {
       }
@@ -154,7 +191,19 @@ function ifs() {
   if (missile01Move == true && missile01LocationY <=0){
     missile01Move = false;
   }
-  ///////////////////////////////////////////////////////////////////////////////
+}
+
+// trigger the explosion
+{
+  if (triggerExplode1 == true) {
+    explodeAni(100-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
+  }
+  if (triggerExplode2 == true) {
+    explodeAni(300-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
+  }
+  if (triggerExplode3 == true) {
+    explodeAni(500-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
+  }
 }
 
 //missile reset
@@ -165,18 +214,10 @@ function ifs() {
   }
 }
 
-//loop initiale
-{
-  if (rock01Appear1 == false && rock01Appear2 == false && rock01Appear3 == false) {
-    //rock01Appear1 = true;
-    //rock01Appear2 = true;
-    //rock01Appear3 = true;
-  }
-}
-
 //rock reset
 {
-  if (rock01Appear1 == false && rock01Appear2 == false && rock01Appear3 == false) {
+  //if they all didnt appear and their explotions are done, then reset
+  if (rock01Appear1 == false && rock01Appear2 == false && rock01Appear3 == false && triggerExplode1 == false && triggerExplode2 == false && triggerExplode3 == false) {
       resetStuff();
   }
 }
@@ -190,34 +231,66 @@ function ifs() {
 
 }
 
-function resetStuff(){
-    rock01Appear1 = true;
-    rock01Appear2 = true;
-    rock01Appear3 = true;
-    correctAnswer = int(random(1, 3.9999999999));
-    rock01LocationY = -rock01SizeY;
-}
-
 function rock () {
   fill(120)
   if (rock01Appear1 == true) {
-    //rect(0,rock01LocationY,200,rock01SizeY);
     image(rock01,0,rock01LocationY,200,rock01SizeY);
   } else {
   }
   if (rock01Appear2 == true) {
-    //rect(200,rock01LocationY,200,rock01SizeY);
     image(rock01,200,rock01LocationY,200,rock01SizeY);
   } else {
   }
   if (rock01Appear3 == true) {
-    //rect(400,rock01LocationY,200,rock01SizeY);
     image(rock01,400,rock01LocationY,200,rock01SizeY);
   } else {
   }
 
   //rock speed
   rock01LocationY += 0.5;
+}
+
+function explodeAni(x,y) {
+  bbb += 0.2;
+  if (int(bbb) == 1){
+    image(ex01,x,y,exSize,exSize);
+  }else if (int(bbb) == 2){
+    image(ex02,x,y,exSize,exSize);
+  }else if (int(bbb) == 3){
+    image(ex03,x,y,exSize,exSize);
+  }else if (int(bbb) == 4){
+    image(ex04,x,y,exSize,exSize);
+  }else if (int(bbb) == 5){
+    image(ex05,x,y,exSize,exSize);
+  }else if (int(bbb) == 6){
+    image(ex06,x,y,exSize,exSize);
+  }else if (int(bbb) == 7){
+    image(ex07,x,y,exSize,exSize);
+  }else if (int(bbb) == 8){
+    image(ex08,x,y,exSize,exSize);
+  }else if (int(bbb) == 9){
+    image(ex09,x,y,exSize,exSize);
+  }else if (int(bbb) == 10){
+    image(ex10,x,y,exSize,exSize);
+  }else if (int(bbb) == 11){
+    image(ex11,x,y,exSize,exSize);
+  }else if (int(bbb) == 12){
+    image(ex12,x,y,exSize,exSize);
+  }
+  if (int(bbb)>12) {
+    triggerExplode1 = false;
+    triggerExplode2 = false;
+    triggerExplode3 = false;
+    bbb = 0;
+  }
+}
+
+function resetStuff() {
+    rock01Appear1 = true;
+    rock01Appear2 = true;
+    rock01Appear3 = true;
+    correctAnswer = int(random(1, 3.9999999999));
+    rock01LocationY = -rock01SizeY;
 }
 
 function gameOver () {
@@ -254,6 +327,7 @@ function test() {
   text(missile01LocationX + missile01SizeX/2,0,20,100,100);
   text(missile01Move,0,40,100,100);
   text(correctAnswer,0,60,100,100);
+  text(int(bbb),0,80,100,100);
 }
 
 
@@ -266,5 +340,6 @@ function test() {
 
 
 
-//aaa
-//arrows not continues
+//bbb
+//uses the sme bbb, sothey all finish exploding together
+//speed of eploding is different
