@@ -365,12 +365,17 @@ function gameOver () {
   retryButton.size(200,50);
   retryButton.position((width/2)-100,230);
 
+  retryButton.mousePressed(restartThisPage);
 
   mainButton = createButton("Main Menu");
   mainButton.size(200,50);
   mainButton.position((width/2)-100,300);
 
   textSize(12);
+}
+
+function restartThisPage(){
+  window.location.replace("index.html");
 }
 
 function keyPressed (){
