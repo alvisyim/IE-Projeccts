@@ -13,11 +13,7 @@ var missile01Move = false;
 var rock01SizeY = 200/490*370;
 var rock01LocationY;
 
-var inPos;
-var bg01;
-var ship01;
-var dottedLine;
-var rock01;
+var inPos, bg01, ship01, dottedLine, rock01;
 
 var rock01Appear1 = false;
 var rock01Appear2 = false;
@@ -25,9 +21,10 @@ var rock01Appear3 = false;
 
 var correctAnswer;
 var bbb = 0;
+var ccc = 0;
+var ddd = 0;
 var exSize = 200;
-var exLocationX;
-var exLocationY;
+var exLocationX,exLocationY;
 
 var triggerExplode1 = false;
 var triggerExplode2 = false;
@@ -82,15 +79,21 @@ function setup () {
 }
 
 function draw() {
-  background(255);
-  bg();
-  rockInit();
-  ifs();
-  rock();
-  keyFunction();
+  if (rock01LocationY+rock01SizeY >= (height-ship01SizeY-10)-10 + 5) {
+    gameOver();
+  } else {
+    //main game
+    background(255);
+    bg();
+    rockInit();
+    ifs();
+    rock();
+    keyFunction();
+    image(ship01, ship01LocationX, ship01LocationY, ship01SizeX, ship01SizeY);
+  }
   test();
 
-  image(ship01, ship01LocationX, ship01LocationY, ship01SizeX, ship01SizeY);
+
 }
 
 function bg() {
@@ -196,13 +199,13 @@ function ifs() {
 // trigger the explosion
 {
   if (triggerExplode1 == true) {
-    explodeAni(100-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
+    explodeAniEx1(100-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
   }
   if (triggerExplode2 == true) {
-    explodeAni(300-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
+    explodeAniEx2(300-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
   }
   if (triggerExplode3 == true) {
-    explodeAni(500-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
+    explodeAniEx3(500-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
   }
 }
 
@@ -217,16 +220,13 @@ function ifs() {
 //rock reset
 {
   //if they all didnt appear and their explotions are done, then reset
-  if (rock01Appear1 == false && rock01Appear2 == false && rock01Appear3 == false && triggerExplode1 == false && triggerExplode2 == false && triggerExplode3 == false) {
+  if (rock01Appear1 == false && rock01Appear2 == false && rock01Appear3 == false && triggerExplode1 == false && triggerExplode2 == false && triggerExplode3 == false) {// triger the explode then reset
       resetStuff();
   }
 }
 
-//gameMode
+//gameMode//////////////////////////////
 {
-  if (rock01LocationY+rock01SizeY >= (height-ship01SizeY-10)-10 + 5) {
-    gameOver();
-  }
 }
 
 }
@@ -247,41 +247,103 @@ function rock () {
   }
 
   //rock speed
-  rock01LocationY += 0.5;
+  rock01LocationY += 1;//1
 }
 
-function explodeAni(x,y) {
+//cuz if we only use one function, it will not be able to explode seperately, they would end the same time
+function explodeAniEx1(x1,y1) {
   bbb += 0.2;
   if (int(bbb) == 1){
-    image(ex01,x,y,exSize,exSize);
+    image(ex01,x1,y1,exSize,exSize);
   }else if (int(bbb) == 2){
-    image(ex02,x,y,exSize,exSize);
+    image(ex02,x1,y1,exSize,exSize);
   }else if (int(bbb) == 3){
-    image(ex03,x,y,exSize,exSize);
+    image(ex03,x1,y1,exSize,exSize);
   }else if (int(bbb) == 4){
-    image(ex04,x,y,exSize,exSize);
+    image(ex04,x1,y1,exSize,exSize);
   }else if (int(bbb) == 5){
-    image(ex05,x,y,exSize,exSize);
+    image(ex05,x1,y1,exSize,exSize);
   }else if (int(bbb) == 6){
-    image(ex06,x,y,exSize,exSize);
+    image(ex06,x1,y1,exSize,exSize);
   }else if (int(bbb) == 7){
-    image(ex07,x,y,exSize,exSize);
+    image(ex07,x1,y1,exSize,exSize);
   }else if (int(bbb) == 8){
-    image(ex08,x,y,exSize,exSize);
+    image(ex08,x1,y1,exSize,exSize);
   }else if (int(bbb) == 9){
-    image(ex09,x,y,exSize,exSize);
+    image(ex09,x1,y1,exSize,exSize);
   }else if (int(bbb) == 10){
-    image(ex10,x,y,exSize,exSize);
+    image(ex10,x1,y1,exSize,exSize);
   }else if (int(bbb) == 11){
-    image(ex11,x,y,exSize,exSize);
+    image(ex11,x1,y1,exSize,exSize);
   }else if (int(bbb) == 12){
-    image(ex12,x,y,exSize,exSize);
-  }
-  if (int(bbb)>12) {
+    image(ex12,x1,y1,exSize,exSize);
+  } else  if (int(bbb)>12) {
     triggerExplode1 = false;
-    triggerExplode2 = false;
-    triggerExplode3 = false;
     bbb = 0;
+  }
+}
+
+function explodeAniEx2(x2,y2) {
+  ccc += 0.2;
+  if (int(ccc) == 1){
+    image(ex01,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 2){
+    image(ex02,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 3){
+    image(ex03,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 4){
+    image(ex04,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 5){
+    image(ex05,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 6){
+    image(ex06,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 7){
+    image(ex07,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 8){
+    image(ex08,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 9){
+    image(ex09,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 10){
+    image(ex10,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 11){
+    image(ex11,x2,y2,exSize,exSize);
+  }else if (int(ccc) == 12){
+    image(ex12,x2,y2,exSize,exSize);
+  } else if (int(ccc)>12) {
+    triggerExplode2 = false;
+    ccc = 0;
+  }
+}
+
+function explodeAniEx3(x3,y3) {
+  ddd += 0.2;
+  if (int(ddd) == 1){
+    image(ex01,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 2){
+    image(ex02,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 3){
+    image(ex03,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 4){
+    image(ex04,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 5){
+    image(ex05,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 6){
+    image(ex06,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 7){
+    image(ex07,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 8){
+    image(ex08,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 9){
+    image(ex09,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 10){
+    image(ex10,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 11){
+    image(ex11,x3,y3,exSize,exSize);
+  }else if (int(ddd) == 12){
+    image(ex12,x3,y3,exSize,exSize);
+  } else if (int(ddd)>12) {
+    triggerExplode3 = false;
+    ddd = 0;
   }
 }
 
@@ -295,7 +357,20 @@ function resetStuff() {
 
 function gameOver () {
   fill(225);
-  text("Game Over",0,0,width, height);
+  background(0);
+  textSize(100);
+  text("Game Over",0,80,width, height-80);
+
+  retryButton = createButton("Retry");
+  retryButton.size(200,50);
+  retryButton.position((width/2)-100,230);
+
+
+  mainButton = createButton("Main Menu");
+  mainButton.size(200,50);
+  mainButton.position((width/2)-100,300);
+
+  textSize(12);
 }
 
 function keyPressed (){
@@ -305,12 +380,12 @@ function keyPressed (){
 }
 
 function keyFunction (){
-
+//ship speed
   if (keyIsDown(LEFT_ARROW)){
-    ship01LocationX -= 5;
+    ship01LocationX -= 3;
   }
   if (keyIsDown(RIGHT_ARROW)){
-    ship01LocationX += 5;
+    ship01LocationX += 3;
   }
 
   if (ship01LocationX <= 0){
@@ -327,19 +402,7 @@ function test() {
   text(missile01LocationX + missile01SizeX/2,0,20,100,100);
   text(missile01Move,0,40,100,100);
   text(correctAnswer,0,60,100,100);
-  text(int(bbb),0,80,100,100);
+  text("bbb"+int(bbb),0,80,100,100);
+  text("ccc"+int(ccc),0,100,100,100);
+  text("ddd"+int(ddd),0,120,100,100);
 }
-
-
-
-
-
-
-
-
-
-
-
-//bbb
-//uses the sme bbb, sothey all finish exploding together
-//speed of eploding is different
