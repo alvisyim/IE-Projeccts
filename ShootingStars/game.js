@@ -55,6 +55,9 @@ function preload() {
   ex11 = loadImage("ex/ex11.png");
   ex12 = loadImage("ex/ex12.png");
   //1:1
+
+  gameOverWord = loadImage("gameOver.png");
+  //358x247
 }
 
 function setup () {
@@ -241,7 +244,7 @@ function rock () {
   }
 
   //rock speed
-  rock01LocationY += 1;//1
+  rock01LocationY += 5;//1
 }
 
 //cuz if we only use one function, it will not be able to explode seperately, they would end the same time
@@ -353,17 +356,32 @@ function gameOver () {
   fill(225);
   background(0);
   image(bg01,0,0,width, 600/320*480);
-  textSize(100);
-  text("Game Over",0,80,width, height-80);
+  image(gameOverWord,(width/2)-((358*0.8)/2),18,358*0.8,247*0.8)
 
   retryButton = createButton("Retry");
   retryButton.size(200,50);
-  retryButton.position(((width/2)-100)+8,230);
+  retryButton.position(((width/2)-100)+8,250);
+  //retryButton.style("border","solid");
+  retryButton.style("borderWidth","4px");
+  retryButton.style("borderColor","black");
+  retryButton.style("borderRadius","8px");
+  retryButton.style("font","bold 150% Tahoma");
+  retryButton.style("textAlign","center");
+  //retryButton.style("textMargin","50px");
+  retryButton.style("backgroundColor","#ffc660");
   retryButton.mousePressed(restartThisPage);
 
   mainButton = createButton("Main Menu");
   mainButton.size(200,50);
-  mainButton.position(((width/2)-100)+8,300);
+  mainButton.position(((width/2)-100)+8,320);
+  //mainButton.style("border","solid");
+  mainButton.style("borderWidth","4px");
+  mainButton.style("borderColor","black");
+  mainButton.style("borderRadius","8px");
+  mainButton.style("font","bold 150% Tahoma");
+  mainButton.style("textAlign","center");
+  //mainButton.style("textMargin","50px");
+  mainButton.style("backgroundColor","#ffc660");
   mainButton.mousePressed(goToMainMenu);
 
   textSize(12);
