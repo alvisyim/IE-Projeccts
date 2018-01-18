@@ -92,8 +92,6 @@ function draw() {
     image(ship01, ship01LocationX, ship01LocationY, ship01SizeX, ship01SizeY);
   }
   test();
-
-
 }
 
 function bg() {
@@ -225,10 +223,6 @@ function ifs() {
   }
 }
 
-//gameMode//////////////////////////////
-{
-}
-
 }
 
 function rock () {
@@ -358,24 +352,29 @@ function resetStuff() {
 function gameOver () {
   fill(225);
   background(0);
+  image(bg01,0,0,width, 600/320*480);
   textSize(100);
   text("Game Over",0,80,width, height-80);
 
   retryButton = createButton("Retry");
   retryButton.size(200,50);
-  retryButton.position((width/2)-100,230);
-
+  retryButton.position(((width/2)-100)+8,230);
   retryButton.mousePressed(restartThisPage);
 
   mainButton = createButton("Main Menu");
   mainButton.size(200,50);
-  mainButton.position((width/2)-100,300);
+  mainButton.position(((width/2)-100)+8,300);
+  mainButton.mousePressed(goToMainMenu);
 
   textSize(12);
 }
 
 function restartThisPage(){
-  window.location.replace("index.html");
+  window.location.replace("game.html");
+}
+
+function goToMainMenu(){
+  window.location.replace("mainMenu.html");
 }
 
 function keyPressed (){
