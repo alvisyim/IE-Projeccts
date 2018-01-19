@@ -94,7 +94,7 @@ function draw() {
     keyFunction();
     image(ship01, ship01LocationX, ship01LocationY, ship01SizeX, ship01SizeY);
   }
-  test();
+  //test();////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
 function bg() {
@@ -244,7 +244,7 @@ function rock () {
   }
 
   //rock speed
-  rock01LocationY += 5;//1
+  rock01LocationY += 1;//1
 }
 
 //cuz if we only use one function, it will not be able to explode seperately, they would end the same time
