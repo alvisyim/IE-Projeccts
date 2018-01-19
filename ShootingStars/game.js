@@ -353,23 +353,53 @@ function resetStuff() {
 }
 
 function gameOver () {
+
   fill(225);
   background(0);
   image(bg01,0,0,width, 600/320*480);
-  textSize(100);
-  text("Game Over",0,80,width, height-80);
+  image(gameOverWord,(width/2)-((358*0.7)/2),18,358*0.7,247*0.7);
 
   retryButton = createButton("Retry");
   retryButton.size(200,50);
-  retryButton.position(((width/2)-100)+8,230);
+  retryButton.position(((width/2)-100)+8,210);
+  //retryButton.style("border","solid");
+  retryButton.style("borderWidth","4px");
+  retryButton.style("borderColor","black");
+  retryButton.style("borderRadius","8px");
+  retryButton.style("font","bold 180% Tahoma");
+  retryButton.style("textAlign","center");
+  //retryButton.style("textMargin","50px");
+  retryButton.style("backgroundColor","#ffc660");
   retryButton.mousePressed(restartThisPage);
 
   mainButton = createButton("Main Menu");
   mainButton.size(200,50);
-  mainButton.position(((width/2)-100)+8,300);
+  mainButton.position(((width/2)-100)+8,270);
+  //mainButton.style("border","solid");
+  mainButton.style("borderWidth","4px");
+  mainButton.style("borderColor","black");
+  mainButton.style("borderRadius","8px");
+  mainButton.style("font","bold 150% Tahoma");
+  mainButton.style("textAlign","center");
+  //mainButton.style("textMargin","50px");
+  mainButton.style("backgroundColor","#ffc660");
   mainButton.mousePressed(goToMainMenu);
 
+  highScorePageBtn = createButton("Upload Highscore");
+  highScorePageBtn.size(200,50);
+  highScorePageBtn.position(((width/2)-100)+8,330);
+  //highScorePageBtn.style("border","solid");
+  highScorePageBtn.style("borderWidth","4px");
+  highScorePageBtn.style("borderColor","black");
+  highScorePageBtn.style("borderRadius","8px");
+  highScorePageBtn.style("font","bold 120% Tahoma");
+  highScorePageBtn.style("textAlign","center");
+  //highScorePageBtn.style("textMargin","50px");
+  highScorePageBtn.style("backgroundColor","#ffc660");
+  //highScorePageBtn.mousePressed(goToHighScorePage);
+
   textSize(12);
+
 }
 
 function restartThisPage(){
