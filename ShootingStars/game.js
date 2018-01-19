@@ -94,7 +94,7 @@ function draw() {
     keyFunction();
     image(ship01, ship01LocationX, ship01LocationY, ship01SizeX, ship01SizeY);
   }
-  //test();////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  test();
 }
 
 function bg() {
@@ -356,32 +356,17 @@ function gameOver () {
   fill(225);
   background(0);
   image(bg01,0,0,width, 600/320*480);
-  image(gameOverWord,(width/2)-((358*0.8)/2),18,358*0.8,247*0.8)
+  textSize(100);
+  text("Game Over",0,80,width, height-80);
 
   retryButton = createButton("Retry");
   retryButton.size(200,50);
-  retryButton.position(((width/2)-100)+8,250);
-  //retryButton.style("border","solid");
-  retryButton.style("borderWidth","4px");
-  retryButton.style("borderColor","black");
-  retryButton.style("borderRadius","8px");
-  retryButton.style("font","bold 150% Tahoma");
-  retryButton.style("textAlign","center");
-  //retryButton.style("textMargin","50px");
-  retryButton.style("backgroundColor","#ffc660");
+  retryButton.position(((width/2)-100)+8,230);
   retryButton.mousePressed(restartThisPage);
 
   mainButton = createButton("Main Menu");
   mainButton.size(200,50);
-  mainButton.position(((width/2)-100)+8,320);
-  //mainButton.style("border","solid");
-  mainButton.style("borderWidth","4px");
-  mainButton.style("borderColor","black");
-  mainButton.style("borderRadius","8px");
-  mainButton.style("font","bold 150% Tahoma");
-  mainButton.style("textAlign","center");
-  //mainButton.style("textMargin","50px");
-  mainButton.style("backgroundColor","#ffc660");
+  mainButton.position(((width/2)-100)+8,300);
   mainButton.mousePressed(goToMainMenu);
 
   textSize(12);
