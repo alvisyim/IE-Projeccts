@@ -12,7 +12,7 @@ function setup () {
 function draw() {
   background(225);
   image(bg01,0,0,width, 600/320*480);
-  image(logo,170,-50,6652/12,2889/12);
+  image(logo,170,0,6652/12,2889/12);
 
   playButton = createButton("Play >>");
   playButton.size(180,65);
