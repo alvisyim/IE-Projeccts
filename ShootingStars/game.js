@@ -30,6 +30,7 @@ var triggerExplode1 = false;
 var triggerExplode2 = false;
 var triggerExplode3 = false;
 
+var score = 100;
 
 function preload() {
   bg01 = loadImage("bg01.jpg");
@@ -244,7 +245,7 @@ function rock () {
   }
 
   //rock speed
-  rock01LocationY += 1;//1
+  rock01LocationY += 10;//1
 }
 
 //cuz if we only use one function, it will not be able to explode seperately, they would end the same time
@@ -360,8 +361,8 @@ function gameOver () {
   image(gameOverWord,(width/2)-((358*0.7)/2),18,358*0.7,247*0.7);
 
   retryButton = createButton("Retry");
-  retryButton.size(200,50);
-  retryButton.position(((width/2)-100)+8,210);
+  retryButton.size(200,70);
+  retryButton.position(((width/2)-100)+8,330);
   //retryButton.style("border","solid");
   retryButton.style("borderWidth","4px");
   retryButton.style("borderColor","black");
@@ -373,26 +374,38 @@ function gameOver () {
   retryButton.mousePressed(restartThisPage);
 
   mainButton = createButton("Main Menu");
-  mainButton.size(200,50);
-  mainButton.position(((width/2)-100)+8,270);
+  mainButton.size(100,40);
+  mainButton.position(12,362);
   //mainButton.style("border","solid");
   mainButton.style("borderWidth","4px");
   mainButton.style("borderColor","black");
   mainButton.style("borderRadius","8px");
-  mainButton.style("font","bold 150% Tahoma");
+  mainButton.style("font","bold 90% Tahoma");
   mainButton.style("textAlign","center");
   //mainButton.style("textMargin","50px");
   mainButton.style("backgroundColor","#ffc660");
   mainButton.mousePressed(goToMainMenu);
 
+  highscoreInput = createInput("Your name __");
+  highscoreInput.size(400,50);
+  highscoreInput.position(((width/2)-250)+8,250);
+  highscoreInput.style("borderColor","black");
+  highscoreInput.style("font","bold 100% Tahoma");
+  highscoreInput.style("textAlign","center");
+
+  fill(225,128,0);
+  textSize(30);
+  textStyle("bold");
+  text("Your Score: "+ score, 100,200,400,35);
+
+
   highScorePageBtn = createButton("Upload Highscore");
-  highScorePageBtn.size(200,50);
-  highScorePageBtn.position(((width/2)-100)+8,330);
+  highScorePageBtn.size(100,56);
+  highScorePageBtn.position((width+8)-145,250);
   //highScorePageBtn.style("border","solid");
   highScorePageBtn.style("borderWidth","4px");
   highScorePageBtn.style("borderColor","black");
-  highScorePageBtn.style("borderRadius","8px");
-  highScorePageBtn.style("font","bold 120% Tahoma");
+  highScorePageBtn.style("font","bold 100% Tahoma");
   highScorePageBtn.style("textAlign","center");
   //highScorePageBtn.style("textMargin","50px");
   highScorePageBtn.style("backgroundColor","#ffc660");
