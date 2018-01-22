@@ -386,12 +386,15 @@ function gameOver () {
   mainButton.style("backgroundColor","#ffc660");
   mainButton.mousePressed(goToMainMenu);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////didn't work, cuz this is supposed to be coded in the function setup. the ulternative would be retrieving info from another file
   highscoreInput = createInput("Your name __");
   highscoreInput.size(400,50);
-  highscoreInput.position(((width/2)-250)+8,250);
   highscoreInput.style("borderColor","black");
   highscoreInput.style("font","bold 100% Tahoma");
   highscoreInput.style("textAlign","center");
+  highscoreInput.position(((width/2)-250)+8,250);
+
+  //score = highscoreInput.value();
 
   fill(225,128,0);
   textSize(30);
