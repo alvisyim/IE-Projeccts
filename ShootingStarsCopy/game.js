@@ -409,3 +409,5 @@ function test() {
   text("ddd"+int(ddd),0,120,100,100);
   text("score: "+int(score),0,140,100,100);
 }
+
+//x3,y3; ddd
