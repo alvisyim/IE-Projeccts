@@ -84,7 +84,7 @@ function setup () {
 
 function draw() {
   if (rock01LocationY+rock01SizeY >= (height-ship01SizeY-10)-10 + 5) {
-    youLose();
+    //youLose();
   } else {
     //main game
     background(255);
@@ -211,7 +211,6 @@ function ifs() {
 {
   if (triggerExplode1 == true) {
     explodeAniEx1(100-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
-
   }
   if (triggerExplode2 == true) {
     explodeAniEx2(300-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
@@ -255,7 +254,7 @@ function rock () {
   }
 
   //rock speed
-  rock01LocationY += 10;//1
+  rock01LocationY += 1;//1
 }
 
 //cuz if we only use one function, it will not be able to explode seperately, they would end the same time
@@ -400,12 +399,11 @@ function keyFunction (){
 
 function test() {
   fill(225,0,0);
-  text(inPos,0,0,100,100);
+  text("score: "+int(score),0,0,100,100);
   text(missile01LocationX + missile01SizeX/2,0,20,100,100);
   text(missile01Move,0,40,100,100);
   text(correctAnswer,0,60,100,100);
-  text("bbb"+int(bbb),0,80,100,100);
-  text("ccc"+int(ccc),0,100,100,100);
-  text("ddd"+int(ddd),0,120,100,100);
-  text("score: "+int(score),0,140,100,100);
+  //text("bbb"+int(bbb),0,80,100,100);
+  //text("ccc"+int(ccc),0,100,100,100);
+  //text("ddd"+int(ddd),0,120,100,100);
 }
