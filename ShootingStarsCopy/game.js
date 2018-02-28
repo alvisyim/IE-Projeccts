@@ -405,7 +405,7 @@ function test() {
   text("score: "+int(score),0,0,100,100);
   //text(missile01LocationX + missile01SizeX/2,0,20,100,100);
   //text(missile01Move,0,40,100,100);
-  text(correctAnswer,0,60,100,100);
+  text(correctAnswer,0,20,100,100);
   //text("bbb"+int(bbb),0,80,100,100);
   //text("ccc"+int(ccc),0,100,100,100);
   //text("ddd"+int(ddd),0,120,100,100);
