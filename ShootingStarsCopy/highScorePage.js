@@ -1,5 +1,7 @@
+//var myScore = 456;
 var myScore = sessionStorage.getItem('playerScore');
-var playerName = highscoreInput.value();
+//var playerName = highscoreInput.value();
+var playerName = "haha";
 
 // Initialize Firebase
 var config = {
@@ -12,7 +14,7 @@ var config = {
 };
 
 var data = {
-  name: "playerName",
+  name: playerName,
   score: myScore
 }
 
@@ -76,7 +78,7 @@ function draw () {
   textSize(20);
   textStyle("bold");
   text("Your Score: "+ myScore, 0,210,width,height);
-  test();
+  //test();
 }
 
 function goToMainMenu(){
@@ -87,7 +89,9 @@ function uploadHighscore() {
   // must be together//
   var database = firebase.database();
   var ref = database.ref('Highscores');
+  //playerName = highscoreInput.value();
   ref.push(data);
+  //what if undefined? highscore comfirmation?
 }
 
 function test (){
