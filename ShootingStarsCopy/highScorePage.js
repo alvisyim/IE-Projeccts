@@ -93,6 +93,6 @@ function uploadHighscore() {
 function test (){
   fill(255,0,0);
   textSize(12);
-  text(myScore,0,20,100,100);
   text(playerName,0,0,100,100);
+  text(myScore,0,20,100,100);
 }
