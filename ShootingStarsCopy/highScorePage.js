@@ -1,5 +1,5 @@
 var myScore = sessionStorage.getItem('playerScore');
-var playerName = "haha";
+var playerName = highscoreInput.value();
 
 // Initialize Firebase
 var config = {
