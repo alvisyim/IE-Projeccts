@@ -1,5 +1,6 @@
 var myScore = sessionStorage.getItem('playerScore');
-var playerName = highscoreInput.value();
+//var playerName = highscoreInput.value();
+var playerName = "lol";
 
 // Initialize Firebase
 var config = {
@@ -39,7 +40,6 @@ function setup () {
   highscoreInput.style("font","bold 100% Tahoma");
   highscoreInput.style("textAlign","center");
   highscoreInput.position(((width/2)-250)+8,250);
-  playerName = highscoreInput.value();
 
 //  playerName = highscoreInput.value();
 
