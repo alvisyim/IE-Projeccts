@@ -39,6 +39,7 @@ function setup () {
   highscoreInput.style("font","bold 100% Tahoma");
   highscoreInput.style("textAlign","center");
   highscoreInput.position(((width/2)-250)+8,250);
+  playerName = highscoreInput.value();
 
 //  playerName = highscoreInput.value();
 
