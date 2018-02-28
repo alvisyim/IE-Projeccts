@@ -1,7 +1,8 @@
 //var myScore = 456;
 var myScore = sessionStorage.getItem('playerScore');
-//var playerName = highscoreInput.value();
-var playerName = "haha";
+
+//must have value
+var playerName = "undefined";
 
 // Initialize Firebase
 var config = {
@@ -12,12 +13,13 @@ var config = {
   storageBucket: "shooting-stars-9a961.appspot.com",
   messagingSenderId: "597164631844"
 };
-
+/*
+// cannot be here cuz playername changes
 var data = {
   name: playerName,
   score: myScore
 }
-
+*/
 
 
 function preload(){
@@ -41,8 +43,6 @@ function setup () {
   highscoreInput.style("font","bold 100% Tahoma");
   highscoreInput.style("textAlign","center");
   highscoreInput.position(((width/2)-250)+8,250);
-
-//  playerName = highscoreInput.value();
 
   highScoreUpload = createButton("Upload Highscore");
   highScoreUpload.size(200,70);
@@ -89,14 +89,17 @@ function uploadHighscore() {
   // must be together//
   var database = firebase.database();
   var ref = database.ref('Highscores');
-  //playerName = highscoreInput.value();
-  ref.push(data);
+  fill(0,225,0);
+  text(playerName ,0,0,100,100);
+  ref.push({
+    name: highscoreInput.value(),
+    score: myScore
+  });
   //what if undefined? highscore comfirmation?
 }
 
 function test (){
   fill(255,0,0);
   textSize(12);
-  text(playerName,0,0,100,100);
   text(myScore,0,20,100,100);
 }

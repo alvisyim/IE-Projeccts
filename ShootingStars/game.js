@@ -62,6 +62,7 @@ function preload() {
 }
 
 function setup () {
+  //sessionStorage.setItem('playerScore', '12346'); doesnt work offline
   createCanvas(600,400);
   textAlign(CENTER);
 
@@ -84,7 +85,7 @@ function setup () {
 
 function draw() {
   if (rock01LocationY+rock01SizeY >= (height-ship01SizeY-10)-10 + 5) {
-    gameOver();
+    youLose();
   } else {
     //main game
     background(255);
@@ -363,73 +364,13 @@ function resetStuff() {
     rock01LocationY = -rock01SizeY;
 }
 
-function gameOver () {
-
-  fill(225);
-  background(0);
-  image(bg01,0,0,width, 600/320*480);
-  image(gameOverWord,(width/2)-((358*0.7)/2),18,358*0.7,247*0.7);
-
-  retryButton = createButton("Retry");
-  retryButton.size(200,70);
-  retryButton.position(((width/2)-100)+8,330);
-  //retryButton.style("border","solid");
-  retryButton.style("borderWidth","4px");
-  retryButton.style("borderColor","black");
-  retryButton.style("borderRadius","8px");
-  retryButton.style("font","bold 180% Tahoma");
-  retryButton.style("textAlign","center");
-  //retryButton.style("textMargin","50px");
-  retryButton.style("backgroundColor","#ffc660");
-  retryButton.mousePressed(restartThisPage);
-
-  mainButton = createButton("Main Menu");
-  mainButton.size(100,40);
-  mainButton.position(12,362);
-  //mainButton.style("border","solid");
-  mainButton.style("borderWidth","4px");
-  mainButton.style("borderColor","black");
-  mainButton.style("borderRadius","8px");
-  mainButton.style("font","bold 90% Tahoma");
-  mainButton.style("textAlign","center");
-  //mainButton.style("textMargin","50px");
-  mainButton.style("backgroundColor","#ffc660");
-  mainButton.mousePressed(goToMainMenu);
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////didn't work, cuz this is supposed to be coded in the function setup. the ulternative would be retrieving info from another file
-  highscoreInput = createInput("Your name __");
-  highscoreInput.size(400,50);
-  highscoreInput.style("borderColor","black");
-  highscoreInput.style("font","bold 100% Tahoma");
-  highscoreInput.style("textAlign","center");
-  highscoreInput.position(((width/2)-250)+8,250);
-
-  //score = highscoreInput.value();
-
-  fill(225,128,0);
-  textSize(30);
-  textStyle("bold");
-  text("Your Score: "+ score, 100,200,400,35);
-
-
-  highScorePageBtn = createButton("Upload Highscore");
-  highScorePageBtn.size(100,56);
-  highScorePageBtn.position((width+8)-145,250);
-  //highScorePageBtn.style("border","solid");
-  highScorePageBtn.style("borderWidth","4px");
-  highScorePageBtn.style("borderColor","black");
-  highScorePageBtn.style("font","bold 100% Tahoma");
-  highScorePageBtn.style("textAlign","center");
-  //highScorePageBtn.style("textMargin","50px");
-  highScorePageBtn.style("backgroundColor","#ffc660");
-  //highScorePageBtn.mousePressed(goToHighScorePage);
-
-  textSize(12);
-
-}
-
 function restartThisPage(){
   window.location.replace("game.html");
+}
+
+function youLose(){
+  sessionStorage.setItem('playerScore', score);
+  window.location.replace("highScore.html");
 }
 
 function goToMainMenu(){
@@ -461,15 +402,14 @@ function keyFunction (){
 
 function test() {
   fill(225,0,0);
-  text(inPos,0,0,100,100);
-  text(missile01LocationX + missile01SizeX/2,0,20,100,100);
-  text(missile01Move,0,40,100,100);
-  text(correctAnswer,0,60,100,100);
-  text("bbb"+int(bbb),0,80,100,100);
-  text("ccc"+int(ccc),0,100,100,100);
-  text("ddd"+int(ddd),0,120,100,100);
-  text("score: "+int(score),0,140,100,100);
+  text("score: "+int(score),0,0,100,100);
+  //text(missile01LocationX + missile01SizeX/2,0,20,100,100);
+  //text(missile01Move,0,40,100,100);
+  text(correctAnswer,0,20,100,100);
+  //text("bbb"+int(bbb),0,80,100,100);
+  //text("ccc"+int(ccc),0,100,100,100);
+  //text("ddd"+int(ddd),0,120,100,100);
+  //text(inPos,0,0,140,100);
 }
-
 
 //x3,y3; ddd

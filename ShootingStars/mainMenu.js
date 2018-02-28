@@ -42,7 +42,7 @@ function draw() {
   highScores.style("textAlign","left");
   highScores.style("backgroundColor","#ffc660");
 
-  //highScores.mousePressed(playGame);
+  //highScores.mousePressed(go to list page);
 
 
 }
