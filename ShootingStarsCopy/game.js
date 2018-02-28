@@ -62,6 +62,7 @@ function preload() {
 }
 
 function setup () {
+  //sessionStorage.setItem('playerScore', '12346'); doesnt work offline
   createCanvas(600,400);
   textAlign(CENTER);
 
