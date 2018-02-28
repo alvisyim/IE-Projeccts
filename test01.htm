@@ -15,7 +15,7 @@
 </head>
 
 <body style="color:white;">
-  <img src="ShootingStars/shootingStarsLogo.png" alt"nothing" width="70%" height="auto"/>
+  <img src="ShootingStars/shootingStarsLogo.png" alt"nothing" width="50%" height="auto"/>
   <h3 align="center"> <ins><em>Shooting stars, the most classic and simple game.-</em></ins></h3>
   <p>Instructions</p>
   <ul>
@@ -27,13 +27,12 @@
   <p>Notes</p>
   <ul>
     <li>Popup size is fixed by codes</li>
+    <li>sessionStorage.setItem('playerScore', '12346'); doesnt work offline</li>
     <li>Activity one scrollable, resizable</li>
     <li>explosion happen before reset, explotion extended the time for the rock current position</li>
     <li>tab icon not compatible for all (must be png)</li>
-    <li>sessionStorage.setItem('playerScore', '12346'); doesnt work offline</li>
   </ul>
-  <p>now we need to make the highscore uploade in the gameover page, bacause we cant move the p5.js butttons arround</p>
-  <p>input didn't work, cuz it's supposed to be coded in the function setup. the ulternative would be retrieving info from another file</p>
+  <p>now we need to enhance the game, and integrate educational aspacts</p>
 <!-------------------------->
   <p align="center">
     <input type="button" value="Click Here to Play" onclick="window.open('ShootingStars/mainMenu.html', 'My Window', 'height=457, width=631, scrollbars=no, resizable=no')"/>

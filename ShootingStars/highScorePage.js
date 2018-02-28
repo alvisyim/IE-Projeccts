@@ -1,9 +1,6 @@
 //var myScore = 456;
 var myScore = sessionStorage.getItem('playerScore');
 
-//must have value
-var playerName = "undefined";
-
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyBzuHIqBV2fMg4BKI2Izd6BOKdD1epT6l8",
@@ -14,6 +11,9 @@ var config = {
   messagingSenderId: "597164631844"
 };
 /*
+//must have value
+var playerName = "undefined";
+
 // cannot be here cuz playername changes
 var data = {
   name: playerName,
@@ -89,8 +89,6 @@ function uploadHighscore() {
   // must be together//
   var database = firebase.database();
   var ref = database.ref('Highscores');
-  fill(0,225,0);
-  text(playerName ,0,0,100,100);
   ref.push({
     name: highscoreInput.value(),
     score: myScore
