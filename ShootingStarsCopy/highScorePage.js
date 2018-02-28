@@ -1,4 +1,4 @@
-var playerScore = 1234;
+var myScore = sessionStorage.getItem('playerScore');
 var playerName = "haha";
 
 // Initialize Firebase
@@ -13,7 +13,7 @@ var config = {
 
 var data = {
   name: playerName,
-  score: playerScore
+  score: myScore
 }
 
 
@@ -75,7 +75,7 @@ function draw () {
   textAlign(CENTER);
   textSize(20);
   textStyle("bold");
-  text("Your Score: "+ playerScore, 0,210,width,height);
+  text("Your Score: "+ myScore, 0,210,width,height);
   test();
 }
 
@@ -93,6 +93,6 @@ function uploadHighscore() {
 function test (){
   fill(255,0,0);
   textSize(12);
-  text(playerScore,0,20,100,100);
+  text(myScore,0,20,100,100);
   text(playerName,0,0,100,100);
 }

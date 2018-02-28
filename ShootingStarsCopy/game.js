@@ -368,6 +368,7 @@ function restartThisPage(){
 }
 
 function youLose(){
+  sessionStorage.setItem('playerScore', score);
   window.location.replace("highScore.html");
 }
 
