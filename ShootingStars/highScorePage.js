@@ -93,7 +93,22 @@ function uploadHighscore() {
     name: highscoreInput.value(),
     score: myScore
   });
-  //what if undefined? highscore comfirmation?
+
+  //cannot click when its undefined
+
+  //error detection   //what if undefined? highscore comfirmation?
+  /*
+  try{
+  } catch(err) {
+    alert('error');
+  } finally {
+    alert('Sucessfully uploaded Highscore');
+  }
+*/if (confirm("Sucessfully uploaded Highscore \nDo you want to go to leaderboard?")) {
+      window.location.replace("leaderboard.html");
+    } else {
+      window.location.replace("mainMenu.html");
+    }
 }
 
 function test (){

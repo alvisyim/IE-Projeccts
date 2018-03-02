@@ -41,10 +41,13 @@ function draw() {
   highScores.style("font","bold 180% Tahoma");
   highScores.style("textAlign","left");
   highScores.style("backgroundColor","#ffc660");
+  highScores.mousePressed(gotoleaderboard);
 
-  //highScores.mousePressed(go to list page);
 
+}
 
+function gotoleaderboard(){
+  window.location.replace("leaderboard.html");
 }
 
 function playGame(){
