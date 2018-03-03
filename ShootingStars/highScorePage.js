@@ -104,11 +104,7 @@ function uploadHighscore() {
   } finally {
     alert('Sucessfully uploaded Highscore');
   }
-*//*if (confirm("Sucessfully uploaded Highscore \nDo you want to go to leaderboard?")) {
-      window.location.replace("leaderboard.html");
-    } else {
-      window.location.replace("mainMenu.html");
-    }*/
+*/
 }
 
 function test (){
