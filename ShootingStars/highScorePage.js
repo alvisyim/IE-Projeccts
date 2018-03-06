@@ -85,6 +85,17 @@ function goToMainMenu(){
   window.location.replace("mainMenu.html");
 }
 
+function confirmation() {
+  var aaa = confirm('Sucessfully uploaded Highscore \n Do you want to go back to main menu?');
+  if (aaa) {
+    //not working
+    window.location="mainMenu.html";
+  } else {
+    //not working
+    window.location="leaderboard.html";
+  }
+}
+
 function uploadHighscore() {
   // must be together//
   var database = firebase.database();
@@ -93,18 +104,7 @@ function uploadHighscore() {
     name: highscoreInput.value(),
     score: myScore
   });
-
-  //cannot click when its undefined
-
-  //error detection   //what if undefined? highscore comfirmation?
-  /*
-  try{
-  } catch(err) {
-    alert('error');
-  } finally {
-    alert('Sucessfully uploaded Highscore');
-  }
-*/
+  confirmation();
 }
 
 function test (){
