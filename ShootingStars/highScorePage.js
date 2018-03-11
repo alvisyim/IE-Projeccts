@@ -1,5 +1,5 @@
-var myScore = 456;
-//var myScore = sessionStorage.getItem('playerScore');
+//var myScore = 456;
+var myScore = sessionStorage.getItem('playerScore');
 
 // Initialize Firebase
 var config = {
