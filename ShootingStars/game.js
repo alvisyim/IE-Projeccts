@@ -95,6 +95,14 @@ function draw() {
     rock();
     keyFunction();
     image(ship01, ship01LocationX, ship01LocationY, ship01SizeX, ship01SizeY);
+
+    fill(255,198,96);
+    stroke(0);
+    strokeWeight(2);
+    rect(520-2,2,80,20,4);
+    strokeWeight();
+    fill(0);
+    text("Score: "+int(score),520-2,2+4,80,20);
   }
   test();
 }
@@ -138,19 +146,22 @@ function ifs() {
   if ((missile01LocationY < rock01LocationY + rock01SizeY) && missile01Move == true) {
     if (inPos == "1"){
       if (rock01Appear1 == true ){
-        triggerExplode1 = true;
         rock01Appear1 = false;
+        triggerExplode1 = true;
+        //triggerExplode1 = false;//should only start, not continues///////////////////////////////////////////////////////////////////////////////////////////////////////////
         missile01Move = false;
 
         if (correctAnswer == "1"){
           score = score +  20;
           if(rock01Appear2 == true){
-            triggerExplode2 = true;
             rock01Appear2 = false;
+            triggerExplode2 = true;
+            //triggerExplode2 = false;
           }
           if(rock01Appear3 == true){
-            triggerExplode3 = true;
             rock01Appear3 = false;
+            triggerExplode3 = true;
+            //triggerExplode3 = false;////////////////////
           }
         } else {
           score = score -10;
@@ -160,19 +171,22 @@ function ifs() {
     }
     if (inPos == "2"){
       if (rock01Appear2 == true ){
-        triggerExplode2 = true;
         rock01Appear2 = false;
+        triggerExplode2 = true;
+        //triggerExplode2 = false;///////////
         missile01Move = false;
 
         if (correctAnswer == "2"){
           score = score +  20;
           if(rock01Appear1 == true){
-            triggerExplode1 = true;
             rock01Appear1 = false;
+            triggerExplode1 = true;
+            //triggerExplode1 = false;////////////////////
           }
           if(rock01Appear3 == true){
-            triggerExplode3 = true;
             rock01Appear3 = false;
+            triggerExplode3 = true;
+            //triggerExplode3 = false;//////////////////////
           }
         } else {
           score = score -10;
@@ -182,19 +196,22 @@ function ifs() {
     }
     if (inPos == "3"){
       if (rock01Appear3 == true ){
-        triggerExplode3 = true;
         rock01Appear3 = false;
+        triggerExplode3 = true;
+        //triggerExplode3 = false;///////////////////////
         missile01Move = false;
 
         if (correctAnswer == "3"){
           score = score +  20;
           if (rock01Appear1 == true){
-            triggerExplode1 = true;
             rock01Appear1 = false;
+            triggerExplode1 = true;
+            //triggerExplode1 = false;//////////////////
           }
           if(rock01Appear2 == true){
-            triggerExplode2 = true;
             rock01Appear2 = false;
+            triggerExplode2 = true;//////////////////
+            //triggerExplode2 = false;
           }
         } else {
           score = score -10;
@@ -212,13 +229,15 @@ function ifs() {
 {
   if (triggerExplode1 == true) {
     explodeAniEx1(100-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
-
+    //triggerExplode1 = false;
   }
   if (triggerExplode2 == true) {
     explodeAniEx2(300-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
+    //triggerExplode3 = false;
   }
   if (triggerExplode3 == true) {
     explodeAniEx3(500-(exSize/2),rock01LocationY+(rock01SizeY/2)-(exSize/2));
+    //triggerExplode3 = false;
   }
 }
 
@@ -287,8 +306,8 @@ function explodeAniEx1(x1,y1) {
   }else if (int(bbb) == 12){
     image(ex12,x1,y1,exSize,exSize);
   } else  if (int(bbb)>12) {
-    triggerExplode1 = false;
     bbb = 0;
+    triggerExplode1 = false;
   }
 }
 
@@ -319,8 +338,8 @@ function explodeAniEx2(x2,y2) {
   }else if (int(ccc) == 12){
     image(ex12,x2,y2,exSize,exSize);
   } else if (int(ccc)>12) {
-    triggerExplode2 = false;
     ccc = 0;
+    triggerExplode2 = false;
   }
 }
 
@@ -351,8 +370,8 @@ function explodeAniEx3(x3,y3) {
   }else if (int(ddd) == 12){
     image(ex12,x3,y3,exSize,exSize);
   } else if (int(ddd)>12) {
-    triggerExplode3 = false;
     ddd = 0;
+    triggerExplode3 = false;
   }
 }
 
@@ -402,10 +421,9 @@ function keyFunction (){
 
 function test() {
   fill(225,0,0);
-  text("score: "+int(score),0,0,100,100);
+  text(correctAnswer,0,0,100,100);
   //text(missile01LocationX + missile01SizeX/2,0,20,100,100);
   //text(missile01Move,0,40,100,100);
-  text(correctAnswer,0,20,100,100);
   //text("bbb"+int(bbb),0,80,100,100);
   //text("ccc"+int(ccc),0,100,100,100);
   //text("ddd"+int(ddd),0,120,100,100);

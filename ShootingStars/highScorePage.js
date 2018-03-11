@@ -1,5 +1,5 @@
-//var myScore = 456;
-var myScore = sessionStorage.getItem('playerScore');
+var myScore = 456;
+//var myScore = sessionStorage.getItem('playerScore');
 
 // Initialize Firebase
 var config = {
@@ -86,7 +86,7 @@ function goToMainMenu(){
 }
 
 function confirmation() {
-  var aaa = confirm('Sucessfully uploaded Highscore \n Do you want to go back to main menu?');
+  var aaa = confirm('Do you want to go back to main menu?');
   if (aaa) {
     //not working
     window.location="mainMenu.html";
@@ -104,7 +104,8 @@ function uploadHighscore() {
     name: highscoreInput.value(),
     score: myScore
   });
-  confirmation();
+  //alert('Sucessfully uploaded Highscore');
+  //confirmation();
 }
 
 function test (){
