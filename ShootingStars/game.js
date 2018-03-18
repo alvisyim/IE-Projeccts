@@ -31,6 +31,9 @@ var triggerExplode2 = false;
 var triggerExplode3 = false;
 
 var score = 100;
+var valueOne, valueTwo;
+var correctValue;
+var choiceA = 0, choiceB = 0, choiceC = 0;
 
 function preload() {
   bg01 = loadImage("bg01.jpg");
@@ -74,7 +77,6 @@ function setup () {
   missile01LocationX = (ship01LocationX+ship01SizeX/2)-(missile01SizeX/2);
   missile01LocationY = height-missile01SizeY-30;
 
-
   if (ship01LocationX <=0 ){
     ship01LocationX = 0;
   }
@@ -100,11 +102,19 @@ function draw() {
     stroke(0);
     strokeWeight(2);
     rect(520-2,2,80,20,4);
+    rect(2,370-2,100,30,4);
     strokeWeight();
     fill(0);
+    textSize(12);
     text("Score: "+int(score),520-2,2+4,80,20);
+    textSize(17);
+    textStyle("bold");
+    //text(valueOne + " X "+ valueTwo + " = "+ correctValue,2,370+4,100,30);
+    text(valueOne + " X "+ valueTwo + " = ?",2,370+4,100,30);
+
+
   }
-  test();
+  //test();
 }
 
 function bg() {
@@ -260,17 +270,20 @@ function ifs() {
 }
 
 function rock () {
-  fill(120)
+  textSize(40);
   if (rock01Appear1 == true) {
     image(rock01,0,rock01LocationY,200,rock01SizeY);
+    text(choiceA,0,rock01LocationY+(rock01SizeY/2)-10,200,rock01SizeY);
   } else {
   }
   if (rock01Appear2 == true) {
     image(rock01,200,rock01LocationY,200,rock01SizeY);
+    text(choiceB,200,rock01LocationY+(rock01SizeY/2)-10,200,rock01SizeY);
   } else {
   }
   if (rock01Appear3 == true) {
     image(rock01,400,rock01LocationY,200,rock01SizeY);
+    text(choiceC,400,rock01LocationY+(rock01SizeY/2)-10,200,rock01SizeY);
   } else {
   }
 
@@ -376,11 +389,50 @@ function explodeAniEx3(x3,y3) {
 }
 
 function resetStuff() {
-    rock01Appear1 = true;
-    rock01Appear2 = true;
-    rock01Appear3 = true;
-    correctAnswer = int(random(1, 3.9999999999));
-    rock01LocationY = -rock01SizeY;
+  rock01Appear1 = true;
+  rock01Appear2 = true;
+  rock01Appear3 = true;
+  correctAnswer = int(random(1, 3.9999999999));
+  valueOne= int(random(0, 9.99999999999));
+  valueTwo= int(random(0, 9.99999999999));
+  /////game mode
+  correctValue = valueOne*valueTwo;
+
+  correctAnswer = int(random(1, 3.9999999999));
+  rock01LocationY = -rock01SizeY;
+
+  //scramble
+  if (correctAnswer == 1){
+    choiceA = correctValue;
+    choiceB = int(random(0, 9.99999999999));
+    if (choiceB == correctValue){
+      choiceB = int(random(0, 9.99999999999));
+    }
+    choiceC = int(random(0, 9.99999999999));
+    if (choiceC == correctValue){
+      choiceC = int(random(0, 9.99999999999));
+    }
+  } else if (correctAnswer == 2){
+    choiceB = correctValue;
+    choiceA = int(random(0, 9.99999999999));
+    if (choiceA == correctValue){
+      choiceA = int(random(0, 9.99999999999));
+    }
+    choiceC = int(random(0, 9.99999999999));
+    if (choiceC == correctValue){
+      choiceC = int(random(0, 9.99999999999));
+    }
+  } else if (correctAnswer == 3){
+    choiceC = correctValue;
+    choiceA = int(random(0, 9.99999999999));
+    if (choiceA == correctValue){
+      choiceA = int(random(0, 9.99999999999));
+    }
+    choiceB = int(random(0, 9.99999999999));
+    if (choiceB == correctValue){
+      choiceB = int(random(0, 9.99999999999));
+    }
+  }
 }
 
 function restartThisPage(){
