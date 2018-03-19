@@ -414,23 +414,23 @@ function resetStuff() {
     }
   } else if (correctAnswer == 2){
     choiceB = correctValue;
-    choiceA = int(random(0, 9.99999999999));
+    choiceA = int(random(0, 99.99999999999));
     if (choiceA == correctValue){
-      choiceA = int(random(0, 9.99999999999));
+      choiceA = int(random(0, 99.99999999999));
     }
-    choiceC = int(random(0, 9.99999999999));
+    choiceC = int(random(0, 99.99999999999));
     if (choiceC == correctValue){
-      choiceC = int(random(0, 9.99999999999));
+      choiceC = int(random(0, 99.99999999999));
     }
   } else if (correctAnswer == 3){
     choiceC = correctValue;
-    choiceA = int(random(0, 9.99999999999));
+    choiceA = int(random(0, 99.99999999999));
     if (choiceA == correctValue){
-      choiceA = int(random(0, 9.99999999999));
+      choiceA = int(random(0, 99.99999999999));
     }
-    choiceB = int(random(0, 9.99999999999));
+    choiceB = int(random(0, 99.99999999999));
     if (choiceB == correctValue){
-      choiceB = int(random(0, 9.99999999999));
+      choiceB = int(random(0, 99.99999999999));
     }
   }
 }
