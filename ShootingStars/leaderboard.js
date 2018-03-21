@@ -18,8 +18,6 @@ ref.on('value',gotData, errData);
 function preload(){
   bg01 = loadImage("bg01.jpg");
   //320x480
-  highScore = loadImage("highScore.png");
-  //940×370
   loading = createImg("loading.gif");
   //square
 }
@@ -29,9 +27,7 @@ function setup () {
   fill(225);
   background(0);
   image(bg01,0,0,width, 600/320*480);
-  image(highScore,width/2-(940/3)/2,0,940/3,370/3);
-  //image(loading, (width/2)-100,(height/2)-100, 200,200);
-  loading.position((width/2)-50,(height/2)-10);
+  loading.position((width/2)-50,(height/2)-50);
   loading.size(100,100);
 
   mainMenuButton = createButton("Main Menu");
