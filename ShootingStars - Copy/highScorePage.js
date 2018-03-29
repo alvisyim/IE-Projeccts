@@ -42,11 +42,11 @@ function setup () {
   highscoreInput.style("borderColor","black");
   highscoreInput.style("font","bold 100% Tahoma");
   highscoreInput.style("textAlign","center");
-  highscoreInput.position((windowWidth/2)-300+((width/2)-250),(windowHeight/2)-200+250);
+  highscoreInput.position(((width/2)-250)+8,250);
 
   highScoreUpload = createButton("Upload Highscore");
   highScoreUpload.size(200,70);
-  highScoreUpload.position((windowWidth/2)-300+((width/2)-100),(windowHeight/2)-200+320);
+  highScoreUpload.position(((width/2)-100)+8,330);
   //highScoreUpload.style("border","solid");
   highScoreUpload.style("borderWidth","4px");
   highScoreUpload.style("borderColor","black");
@@ -59,7 +59,7 @@ function setup () {
 
   mainMenuButton = createButton("Main Menu");
   mainMenuButton.size(100,40);
-  mainMenuButton.position((windowWidth/2)-300+5,(windowHeight/2)-200+355);
+  mainMenuButton.position(12,362);
   //mainMenuButton.style("border","solid");
   mainMenuButton.style("borderWidth","4px");
   mainMenuButton.style("borderColor","black");

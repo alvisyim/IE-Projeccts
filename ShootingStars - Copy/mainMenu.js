@@ -17,7 +17,6 @@ function draw() {
   playButton = createButton("Play >>");
   playButton.size(180,65);
   playButton.position(15,240);
-  playButton.position((windowWidth/2)-300+15,(windowHeight/2)-200+240);
   //playButton.style("border","solid");
   playButton.style("borderWidth","4px");
   playButton.style("borderColor","black");
@@ -34,7 +33,7 @@ function draw() {
 
   highScores = createButton("High Scores >>");
   highScores.size(300,65);
-  highScores.position((windowWidth/2)-300+15,(windowHeight/2)-200+320);
+  highScores.position(15,320);
   //highScores.style("border","solid");
   highScores.style("borderWidth","4px");
   highScores.style("borderColor","black");

@@ -27,12 +27,12 @@ function setup () {
   fill(225);
   background(0);
   image(bg01,0,0,width, 600/320*480);
-  loading.position((windowWidth/2)-300+(width/2)-50,(windowHeight/2)-200+(height/2)-50);
+  loading.position((width/2)-50,(height/2)-50);
   loading.size(100,100);
 
   mainMenuButton = createButton("Main Menu");
   mainMenuButton.size(100,40);
-  mainMenuButton.position((windowWidth/2)-300+5,(windowHeight/2)-200+355);
+  mainMenuButton.position(12,362);
   //mainMenuButton.style("border","solid");
   mainMenuButton.style("borderWidth","4px");
   mainMenuButton.style("borderColor","black");
